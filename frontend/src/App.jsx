@@ -16,8 +16,13 @@ function App() {
         const data = new FormData();
         data.append("name", file.name);
         data.append("file", file);
+        console.log(file.name);
+        console.log(file);
+        
+
 
         const response = await uploadFile(data);
+        console.log(response.path);
         setResult(response.path);
       }
     }
