@@ -27,7 +27,7 @@ To run the project locally, follow these steps:
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-username/your-repository.git
+   git clone https://github.com/tauqueeralam42/file-sharing-mern.git
    ```
 2. Navigate to the project directory:
    ```sh
