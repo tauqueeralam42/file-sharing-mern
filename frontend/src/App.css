@@ -34,13 +34,14 @@ h1 {
   font-size: 2.5rem;
   font-weight: 700;
   color: #333;
-  margin-bottom: 20px;
+ 
 }
 
 p {
   font-size: 1.1rem;
   color: #666;
   margin-bottom: 30px;
+  margin-top: 20px;
 }
 
 .file-input {
@@ -63,15 +64,47 @@ p {
   background-color: #334a5e;
 }
 
+.url-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
 .download-link {
-  display: block;
-  margin-top: 20px;
   font-size: 1.1rem;
   color: #445A6F;
   text-decoration: none;
   word-break: break-all;
+  flex: 1;
 }
 
 .download-link:hover {
   text-decoration: underline;
+}
+
+.copy-btn {
+  width: 100px;
+  height: 35px;
+  border-radius: 5px;
+  background-color: #1a73e8;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.copy-btn:hover {
+  background-color: #155ab1;
+}
+.url-message {
+  margin-top: 30px;
+  font-size: 1rem;
+  color: #2e2e2e;
+  margin-bottom: 0px;
+  font-weight: 600;
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import './App.css';
-import { uploadFile,shortenUrl } from './api';
+import { uploadFile, shortenUrl } from './api';
 
 function App() {
   const [file, setFile] = useState('');
@@ -31,6 +31,14 @@ function App() {
     fileInputRef.current.click();
   };
 
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(shortUrl).then(() => {
+      alert('URL copied to clipboard!');
+    }).catch((err) => {
+      console.error('Failed to copy URL: ', err);
+    });
+  };
+
   return (
     <div className="container">
       <div className="wrapper">
@@ -44,11 +52,17 @@ function App() {
           className="file-input"
           onChange={(e) => setFile(e.target.files[0])}
         />
+        
+        <p className="url-message">Here is the generated URL that you may share with your friends:</p>
+        
   
         {shortUrl && (
-          <a href={shortUrl} target="_blank" rel="noopener noreferrer" className="download-link">
-            {shortUrl}
-          </a>
+          <div className="url-box">
+            <a href={shortUrl} target="_blank" rel="noopener noreferrer" className="download-link">
+              {shortUrl}
+            </a>
+            <button className="copy-btn" onClick={copyToClipboard}>Copy</button>
+          </div>
         )}
       </div>
     </div>
