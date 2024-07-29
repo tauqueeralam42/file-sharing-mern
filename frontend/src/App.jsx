@@ -1,14 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
 import './App.css';
-import { uploadFile } from './api';
+import { uploadFile,shortenUrl } from './api';
 
 function App() {
   const [file, setFile] = useState('');
   const [result, setResult] = useState('');
+  const [shortUrl, setShortUrl] = useState('');
 
   const fileInputRef = useRef();
-
-  
 
   useEffect(() => {
     const getImage = async () => {
@@ -16,22 +15,21 @@ function App() {
         const data = new FormData();
         data.append("name", file.name);
         data.append("file", file);
-        console.log(file.name);
-        console.log(file);
-        
-
 
         const response = await uploadFile(data);
-        console.log(response.path);
         setResult(response.path);
+
+        // Shorten the URL
+        const shortenedUrl = await shortenUrl(response.path);
+        setShortUrl(shortenedUrl);
       }
     }
     getImage();
-  }, [file])
+  }, [file]);
 
   const onUploadClick = () => {
     fileInputRef.current.click();
-  }
+  };
 
   return (
     <div className="container">
@@ -47,13 +45,14 @@ function App() {
           onChange={(e) => setFile(e.target.files[0])}
         />
   
-        <a href={result} target="_blank" rel="noopener noreferrer" className="download-link">
-          {result}
-        </a> 
+        {shortUrl && (
+          <a href={shortUrl} target="_blank" rel="noopener noreferrer" className="download-link">
+            {shortUrl}
+          </a>
+        )}
       </div>
     </div>
   );
-  
 }
 
 export default App;

@@ -14,7 +14,6 @@
   padding: 20px;
 }
 
-
 .wrapper {
   max-width: 600px;
   width: 100%;
@@ -57,12 +56,11 @@ p {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .upload-btn:hover {
   background-color: #334a5e;
-  transform: scale(1.05);
 }
 
 .download-link {
