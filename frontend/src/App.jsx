@@ -53,16 +53,21 @@ function App() {
           onChange={(e) => setFile(e.target.files[0])}
         />
         
-        <p className="url-message">Here is the generated URL that you may share with your friends:</p>
-        
+       
   
         {shortUrl && (
+          <div>
+          <p className="url-message">Here is the generated URL that you may share with your friends:</p>
           <div className="url-box">
+        
             <a href={shortUrl} target="_blank" rel="noopener noreferrer" className="download-link">
               {shortUrl}
             </a>
             <button className="copy-btn" onClick={copyToClipboard}>Copy</button>
           </div>
+
+          </div>
+
         )}
       </div>
     </div>
